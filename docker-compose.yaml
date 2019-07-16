@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+ ignite:
+  image: apacheignite/ignite:2.7.5
+  environment:
+   - IGNITE_QUIET=false
+  volumes:
+   - ./ignite.xml:/opt/ignite/apache-ignite/config/default-config.xml
+  ports:
+   - "10800:10800" # JDBC
+   - "10900:10900" # Thin client
+   - "11211:11211" # REST
+   - "47100:47100" # Java Service Provider Interface (SPI) Communication
+   - "47500-47599:47500-47599" # Java Service Provider Interface (SPI) Discovery
+   - "48100:48100" # Shared memory port
+   - "49112:49112" # Java Management Extension (JMX)
+
